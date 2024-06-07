@@ -30,13 +30,13 @@ export const startServer = () => {
         });
     });
 
-    app.use('*', (req, res, next) => {
+    app.use('*', (req, res) => {
         res.status(404).json({
             message: 'Not found',
         });
     });
 
-    app.use((err, req, res, next) => {
+    app.use((err, req, res) => {
         res.status(500).json({
             message: 'Somthing went wrong',
             error: err.message,
